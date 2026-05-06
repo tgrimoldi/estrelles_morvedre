@@ -6,3 +6,6 @@ node_modules/
 dist/
 .env
 .env.local
+
+# Generated preview screenshots (regenerable with playwright)
+assets/img/mockup-*.png
