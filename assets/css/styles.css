@@ -74,7 +74,13 @@ a:hover { color: var(--pink); }
   color: var(--blue-deep);
 }
 .brand:hover { color: var(--blue-deep); }
-.brand-mark { line-height: 0; }
+.brand-mark {
+  display: block;
+  height: 48px;
+  width: auto;
+  flex: none;
+  filter: drop-shadow(0 2px 4px rgba(1, 50, 137, 0.18));
+}
 .brand-text { display: flex; flex-direction: column; line-height: 1; }
 .brand-text strong {
   font-family: "Bebas Neue", Impact, sans-serif;
