@@ -186,59 +186,97 @@
     </section>
 
     <section id="contacto" class="section">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Contacto</p>
-          <h2>Hablemos</h2>
-          <p>Para entrenar con nosotros, patrocinios o cualquier consulta:</p>
-          <ul class="contact-list">
-            <li><span>Email</span><a href="mailto:rugbiclubestrelesdemorvedre@gmail.com">rugbiclubestrelesdemorvedre@gmail.com</a></li>
-            <li><span>Campo</span>Camp municipal de Sagunt, Av. dels Esports s/n</li>
-            <li><span>Entrenamientos</span>Martes y jueves, 20:30</li>
-            <li><span>Instagram</span>
-              <a href="https://www.instagram.com/estreles_de_morvedre_rugbyclub/" target="_blank" rel="noopener" aria-label="Instagram de Estreles de Morvedre">@estreles_de_morvedre_rugbyclub</a>
-            </li>
-          </ul>
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <p class="eyebrow">Contacto</p>
+            <h2>Hablemos</h2>
+            <p>Para entrenar con nosotros, patrocinios o cualquier consulta:</p>
+            <ul class="contact-list">
+              <li><span>Email</span><a href="mailto:rugbiclubestrelesdemorvedre@gmail.com">rugbiclubestrelesdemorvedre@gmail.com</a></li>
+              <li><span>Campo</span><a href="#como-llegar">Sagunt, València · ver mapa</a></li>
+              <li><span>Entrenamientos</span>Martes y jueves, 20:30</li>
+              <li><span>Instagram</span>
+                <a href="https://www.instagram.com/estreles_de_morvedre_rugbyclub/" target="_blank" rel="noopener" aria-label="Instagram de Estreles de Morvedre">@estreles_de_morvedre_rugbyclub</a>
+              </li>
+            </ul>
+          </div>
+          <form class="contact-form" onsubmit="return false;" aria-label="Formulario de contacto">
+            <label>
+              Nombre
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>
+              Mensaje
+              <textarea name="message" rows="4" required></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            <p class="form-note small muted">
+              (Demo · el envío real se conectará más adelante)
+            </p>
+          </form>
         </div>
-        <form class="contact-form" onsubmit="return false;" aria-label="Formulario de contacto">
-          <label>
-            Nombre
-            <input type="text" name="name" autocomplete="name" required />
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" autocomplete="email" required />
-          </label>
-          <label>
-            Mensaje
-            <textarea name="message" rows="4" required></textarea>
-          </label>
-          <button type="submit" class="btn btn-primary">Enviar</button>
-          <p class="form-note small muted">
-            (Demo · el envío real se conectará más adelante)
-          </p>
-        </form>
+
+        <div class="map-block" id="como-llegar">
+          <div class="map-head">
+            <div>
+              <p class="eyebrow">Cómo llegar</p>
+              <h3 class="map-title">Encuéntranos en Sagunt</h3>
+            </div>
+            <a class="btn btn-primary"
+               href="https://www.google.com/maps/dir/?api=1&destination=Club+ESTRELES+DE+MORVEDRE+RUGBY+CLUB%2C+Sagunto"
+               target="_blank" rel="noopener">
+              Cómo llegar en Maps →
+            </a>
+          </div>
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3071.0175908299334!2d-0.2449033240821842!3d39.67181887156906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6015eaa3f3e98f%3A0xe0d56fa473367055!2sClub%20ESTRELES%20DE%20MORVEDRE%20RUGBY%20CLUB!5e0!3m2!1ses!2ses!4v1778248672064!5m2!1ses!2ses"
+              title="Mapa del Club Estreles de Morvedre Rugby Club en Sagunt"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <p class="brand small-brand">
-          <strong>Estreles</strong> <em>de Morvedre</em>
-        </p>
-        <p class="muted small">Rugby Club · Sagunt, València · Desde 2019</p>
+    <div class="container">
+      <div class="footer-map" aria-label="Ubicación del club en Sagunt">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3071.0175908299334!2d-0.2449033240821842!3d39.67181887156906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6015eaa3f3e98f%3A0xe0d56fa473367055!2sClub%20ESTRELES%20DE%20MORVEDRE%20RUGBY%20CLUB!5e0!3m2!1ses!2ses!4v1778248672064!5m2!1ses!2ses"
+          title="Mapa de la ubicación del Club Estreles de Morvedre"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      <nav aria-label="Pie">
-        <ul>
-          <li><a href="#club">El club</a></li>
-          <li><a href="#equipos">Equipos</a></li>
-          <li><a href="#calendario">Calendario</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-      <p class="muted small copyright">© <span id="year"></span> Estreles de Morvedre Rugby Club</p>
+
+      <div class="footer-grid">
+        <div>
+          <p class="brand small-brand">
+            <strong>Estreles</strong> <em>de Morvedre</em>
+          </p>
+          <p class="muted small">Rugby Club · Sagunt, València · Desde 2019</p>
+          <p class="small">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Club+ESTRELES+DE+MORVEDRE+RUGBY+CLUB%2C+Sagunto"
+               target="_blank" rel="noopener">Cómo llegar →</a>
+          </p>
+        </div>
+        <nav aria-label="Pie">
+          <ul>
+            <li><a href="#club">El club</a></li>
+            <li><a href="#equipos">Equipos</a></li>
+            <li><a href="#calendario">Calendario</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <p class="muted small copyright">© <span id="year"></span> Estreles de Morvedre Rugby Club</p>
+      </div>
     </div>
   </footer>
 
