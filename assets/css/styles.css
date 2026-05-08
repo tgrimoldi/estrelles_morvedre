@@ -519,6 +519,166 @@ a:hover { color: var(--pink); }
   box-shadow: 0 0 0 3px rgba(244, 15, 202, .22);
 }
 
+/* Section heading block (used by Eventos & Patrocinadores) */
+.section-head { max-width: 65ch; margin-bottom: 2rem; }
+.section-lead { font-size: 1.05rem; margin-top: .25rem; }
+
+/* Events */
+.event {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+}
+.event::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--pink) 100%);
+  z-index: 1;
+}
+.event-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background-image:
+    url("../img/event-1.jpg"),
+    linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 60%, var(--pink) 130%);
+  background-size: cover, auto;
+  background-position: center, center;
+  background-repeat: no-repeat;
+}
+.event-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--pink);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .35rem .65rem;
+  border-radius: 999px;
+  z-index: 2;
+}
+.event-body {
+  padding: 1.75rem;
+  display: grid;
+  align-content: start;
+}
+.event-when {
+  margin: 0 0 .4rem;
+  font-weight: 600;
+  font-size: .9rem;
+}
+.event-title {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: .02em;
+  margin: 0 0 .35rem;
+  color: var(--blue-deep);
+}
+.event-location { margin: 0 0 .9rem; color: var(--muted); font-weight: 500; }
+.event-desc { margin: 0 0 1.25rem; color: #2c3645; }
+.event-cta { display: flex; gap: .6rem; flex-wrap: wrap; }
+
+@media (min-width: 800px) {
+  .event-featured { grid-template-columns: 5fr 7fr; }
+  .event-featured .event-media { aspect-ratio: auto; min-height: 100%; }
+  .event-body { padding: 2.25rem 2.5rem; }
+}
+
+.btn-ghost-blue {
+  border-color: var(--blue);
+  color: var(--blue-deep);
+  background: transparent;
+}
+.btn-ghost-blue:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
+/* Sponsors */
+.sponsors-intro {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  max-width: 70ch;
+  color: #2c3645;
+  margin: 0 0 2.25rem;
+}
+.sponsors-intro strong { color: var(--blue-deep); }
+
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+@media (min-width: 600px) { .sponsor-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px) { .sponsor-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.sponsor {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--blue-deep);
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.sponsor:hover {
+  transform: translateY(-2px);
+  border-color: rgba(244, 15, 202, .35);
+  box-shadow: 0 12px 28px rgba(1, 74, 197, .14);
+}
+.sponsor img {
+  max-width: 80%;
+  max-height: 70%;
+  object-fit: contain;
+}
+.sponsor-name {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: .03em;
+  color: var(--muted);
+  margin: 0;
+}
+
+.sponsor-cta {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+  color: #fff;
+  border: 0;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.sponsor-cta:hover { color: var(--star); border-color: transparent; }
+.sponsor-cta .sponsor-cta-title {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: .03em;
+  margin: 0 0 .25rem;
+  color: inherit;
+}
+.sponsor-cta .sponsor-cta-text {
+  font-size: .85rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, .85);
+  margin: 0;
+}
+.sponsor-cta:hover .sponsor-cta-text { color: rgba(255, 255, 255, .95); }
+
 /* Map */
 .map-block {
   margin-top: 3rem;
