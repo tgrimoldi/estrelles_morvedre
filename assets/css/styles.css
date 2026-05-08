@@ -76,10 +76,11 @@ a:hover { color: var(--pink); }
 .brand:hover { color: var(--blue-deep); }
 .brand-mark {
   display: block;
-  height: 48px;
-  width: auto;
+  height: 52px;
+  width: 52px;
   flex: none;
-  filter: drop-shadow(0 2px 4px rgba(1, 50, 137, 0.18));
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(1, 50, 137, 0.22));
 }
 .brand-text { display: flex; flex-direction: column; line-height: 1; }
 .brand-text strong {
