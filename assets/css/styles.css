@@ -526,6 +526,67 @@ a:hover { color: var(--pink); }
   box-shadow: 0 0 0 3px rgba(244, 15, 202, .22);
 }
 
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+.btn-whatsapp {
+  background: #25D366;
+  color: #fff;
+  border: 2px solid transparent;
+}
+.btn-whatsapp:hover {
+  background: #1ebe57;
+  color: #fff;
+}
+
+/* Floating WhatsApp pill */
+.wa-float {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: #25D366;
+  color: #fff;
+  font-weight: 700;
+  font-size: .9rem;
+  padding: .75rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, .45);
+  transition: transform .25s ease, box-shadow .15s ease, background .15s ease, opacity .25s ease;
+}
+.wa-float--hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(24px) scale(.85);
+}
+.wa-float:hover,
+.wa-float:focus-visible {
+  background: #1ebe57;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(37, 211, 102, .55);
+  outline: none;
+}
+.wa-float svg { flex: none; }
+@media (max-width: 600px) {
+  .wa-float {
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    right: max(1rem, env(safe-area-inset-right));
+    padding: .75rem;
+    border-radius: 999px;
+    aspect-ratio: 1 / 1;
+    width: 52px;
+    height: 52px;
+    justify-content: center;
+  }
+  .wa-float-label { display: none; }
+}
+
 /* Section heading block (used by Eventos & Patrocinadores) */
 .section-head { max-width: 65ch; margin-bottom: 2rem; }
 .section-lead { font-size: 1.05rem; margin-top: .25rem; }

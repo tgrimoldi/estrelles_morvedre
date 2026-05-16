@@ -21,6 +21,9 @@
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  const CLUB_EMAIL = "rugbiclubestrelesdemorvedre@gmail.com";
+  const CLUB_WA = "34661543893";
+
   const form = document.getElementById("unete-form");
   const subjectField = document.getElementById("unete-subject");
 
@@ -36,6 +39,49 @@
       }, 700);
     });
   });
+
+  const fieldVal = (sel) => (form && form.querySelector(sel)?.value.trim()) || "";
+
+  const composeMessage = () => {
+    const name = fieldVal('[name="name"]');
+    const subject = fieldVal('[name="subject"]') || "Mensaje desde la web";
+    const message = fieldVal('[name="message"]');
+    let body = "";
+    if (name) body += `Hola, soy ${name}.\n\n`;
+    if (message) body += `${message}\n\n`;
+    body += "— Enviado desde la web";
+    return { subject, body };
+  };
+
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = fieldVal('[name="email"]');
+      const { subject, body } = composeMessage();
+      const params = new URLSearchParams({ subject, body });
+      const replyTo = email ? `&reply-to=${encodeURIComponent(email)}` : "";
+      window.location.href = `mailto:${CLUB_EMAIL}?${params.toString()}${replyTo}`;
+    });
+  }
+
+  const waBtn = document.getElementById("unete-whatsapp");
+  if (waBtn && form) {
+    waBtn.addEventListener("click", () => {
+      const { subject, body } = composeMessage();
+      const text = `${subject}\n\n${body}`;
+      window.open(`https://wa.me/${CLUB_WA}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    });
+  }
+
+  const waFloat = document.getElementById("wa-float");
+  const uneteSection = document.getElementById("unete");
+  if (waFloat && uneteSection && "IntersectionObserver" in window) {
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach((e) => waFloat.classList.toggle("wa-float--hidden", e.isIntersecting)),
+      { threshold: 0.15 }
+    );
+    obs.observe(uneteSection);
+  }
 
   document.querySelectorAll(".cronica-toggle").forEach((btn) => {
     const grid = document.getElementById(btn.getAttribute("aria-controls"));
