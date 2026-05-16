@@ -598,6 +598,93 @@ a:hover { color: var(--pink); }
   margin: 0 0 .15rem;
 }
 
+/* Crónicas (event past editions) — mobile first */
+.cronicas {
+  display: grid;
+  gap: 1.5rem;
+}
+.cronica {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  padding: 1.5rem 1.25rem;
+  display: grid;
+  gap: 1.1rem;
+  position: relative;
+}
+.cronica::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--pink) 100%);
+}
+.cronica-head {
+  display: grid;
+  gap: .4rem;
+}
+.cronica-head .event-tag {
+  position: static;
+  width: fit-content;
+}
+.cronica-title {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  letter-spacing: .02em;
+  color: var(--blue-deep);
+  margin: 0;
+  line-height: 1;
+}
+.cronica-meta {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: .92rem;
+}
+.cronica-hero {
+  display: block;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper-2);
+}
+.cronica-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+}
+.cronica-hero:hover img { transform: scale(1.02); }
+.cronica-desc {
+  margin: 0;
+  color: #2c3645;
+  line-height: 1.55;
+}
+.cronica-photos { display: grid; gap: 1rem; }
+.cronica-toggle { justify-self: start; }
+.cronica-photos .gallery-grid[data-collapsed="true"] a:nth-child(n+7) {
+  display: none;
+}
+
+@media (min-width: 700px) {
+  .cronica { padding: 2rem; gap: 1.5rem; }
+  .cronica-hero { aspect-ratio: 16 / 9; }
+  .cronica-photos .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .cronica-photos .gallery-grid[data-collapsed="true"] a:nth-child(n+7) { display: none; }
+}
+
+@media (min-width: 1000px) {
+  .cronicas { gap: 2rem; }
+  .cronica { padding: 2.25rem 2.5rem; }
+  .cronica-photos .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+  .cronica-photos .gallery-grid[data-collapsed="true"] a:nth-child(-n+8) { display: block; }
+  .cronica-photos .gallery-grid[data-collapsed="true"] a:nth-child(n+9) { display: none; }
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

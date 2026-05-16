@@ -20,4 +20,21 @@
 
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  document.querySelectorAll(".cronica-toggle").forEach((btn) => {
+    const grid = document.getElementById(btn.getAttribute("aria-controls"));
+    if (!grid) return;
+    btn.addEventListener("click", () => {
+      const collapsed = grid.dataset.collapsed === "true";
+      grid.dataset.collapsed = collapsed ? "false" : "true";
+      btn.setAttribute("aria-expanded", collapsed ? "true" : "false");
+      btn.textContent = collapsed
+        ? btn.dataset.labelExpanded
+        : btn.dataset.labelCollapsed;
+      if (!collapsed) {
+        grid.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+  });
 })();
+
