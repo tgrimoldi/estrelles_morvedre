@@ -21,6 +21,22 @@
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  const form = document.getElementById("unete-form");
+  const subjectField = document.getElementById("unete-subject");
+
+  document.querySelectorAll("a[data-prefill]").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (subjectField) subjectField.value = link.dataset.prefill;
+      if (!form) return;
+      window.setTimeout(() => {
+        const fields = form.querySelectorAll("input, textarea");
+        for (const f of fields) {
+          if (!f.value) { f.focus({ preventScroll: true }); return; }
+        }
+      }, 700);
+    });
+  });
+
   document.querySelectorAll(".cronica-toggle").forEach((btn) => {
     const grid = document.getElementById(btn.getAttribute("aria-controls"));
     if (!grid) return;

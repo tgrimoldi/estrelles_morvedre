@@ -263,7 +263,13 @@ a:hover { color: var(--pink); }
 .btn-ghost:hover { border-color: var(--star); color: var(--star); }
 
 /* Sections */
-.section { padding: 5rem 0; }
+.section { padding: 5rem 0; scroll-margin-top: 70px; }
+.anchor-alias {
+  display: block;
+  position: relative;
+  top: -70px;
+  height: 0;
+}
 .section-alt { background: var(--paper-2); }
 .section h2 {
   font-family: "Bebas Neue", Impact, sans-serif;

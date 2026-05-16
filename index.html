@@ -37,9 +37,8 @@
           <li><a href="#equipos">Equipos</a></li>
           <li><a href="#calendario">Calendario</a></li>
           <li><a href="#eventos">Eventos</a></li>
-          <li><a href="#unete">Únete</a></li>
           <li><a href="#patrocinadores">Patrocinadores</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#unete">Únete</a></li>
         </ul>
       </nav>
     </div>
@@ -56,7 +55,7 @@
           puesta en el campo y los pies en la tierra.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#unete">Únete al club</a>
+          <a class="btn btn-primary" href="#unete" data-prefill="Quiero unirme al club">Únete al club</a>
           <a class="btn btn-ghost" href="#calendario">Próximos partidos</a>
         </div>
       </div>
@@ -98,17 +97,17 @@
           <article class="card">
             <h3>Senior masculino</h3>
             <p>Compite en liga territorial. Entrenamientos martes y jueves a las 20:30.</p>
-            <a class="card-link" href="#contacto">Quiero probar →</a>
+            <a class="card-link" href="#unete" data-prefill="Quiero probar · Senior masculino">Quiero probar →</a>
           </article>
           <article class="card">
             <h3>Senior femenino</h3>
             <p>Equipo en crecimiento, abierto a jugadoras nuevas con o sin experiencia.</p>
-            <a class="card-link" href="#contacto">Quiero probar →</a>
+            <a class="card-link" href="#unete" data-prefill="Quiero probar · Senior femenino">Quiero probar →</a>
           </article>
           <article class="card">
             <h3>Escuela y cantera</h3>
             <p>Sub-8 a sub-16. Aprender, jugar y crecer con el rugby como herramienta.</p>
-            <a class="card-link" href="#contacto">Más información →</a>
+            <a class="card-link" href="#unete" data-prefill="Información · Escuela y cantera">Más información →</a>
           </article>
         </div>
       </div>
@@ -265,32 +264,6 @@
       </div>
     </section>
 
-    <section id="unete" class="section">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Únete</p>
-          <h2>¿Quieres jugar al rugby?</h2>
-          <p>
-            No hace falta experiencia previa. Ven un día a entrenar, conoce al
-            equipo y prueba el deporte. Si te engancha, te quedas.
-          </p>
-          <ul class="bullets">
-            <li>Primera prueba gratuita</li>
-            <li>Material básico prestado</li>
-            <li>Entrenadores titulados</li>
-          </ul>
-          <a class="btn btn-primary" href="#contacto">Escríbenos</a>
-        </div>
-        <div class="quote">
-          <blockquote>
-            «Vine a probar un martes y a la semana siguiente ya no me iba.
-            Aquí no llegas, te recogen.»
-          </blockquote>
-          <cite>— Jugador de la primera línea</cite>
-        </div>
-      </div>
-    </section>
-
     <section id="patrocinadores" class="section section-alt">
       <div class="container">
         <div class="section-head">
@@ -318,13 +291,23 @@
       </div>
     </section>
 
-    <section id="contacto" class="section">
+    <section id="unete" class="section">
+      <span id="contacto" class="anchor-alias" aria-hidden="true"></span>
       <div class="container">
         <div class="two-col">
           <div>
-            <p class="eyebrow">Contacto</p>
-            <h2>Hablemos</h2>
-            <p>Para entrenar con nosotros, patrocinios o cualquier consulta:</p>
+            <p class="eyebrow">Únete · Contacto</p>
+            <h2>¿Te animas a probar?</h2>
+            <p>
+              No hace falta experiencia previa. Escríbenos y te decimos cuándo
+              es el próximo entrenamiento. Aquí no llegas, te recogen.
+            </p>
+            <ul class="bullets">
+              <li>Primera prueba gratuita</li>
+              <li>Material básico prestado</li>
+              <li>Entrenadores titulados</li>
+              <li>Tercer tiempo después de cada partido</li>
+            </ul>
             <ul class="contact-list">
               <li><span>Email</span><a href="mailto:rugbiclubestrelesdemorvedre@gmail.com">rugbiclubestrelesdemorvedre@gmail.com</a></li>
               <li><span>Campo</span><a href="#como-llegar">Sagunt, València · ver mapa</a></li>
@@ -334,18 +317,22 @@
               </li>
             </ul>
           </div>
-          <form class="contact-form" onsubmit="return false;" aria-label="Formulario de contacto">
+          <form class="contact-form" id="unete-form" onsubmit="return false;" aria-label="Formulario para unirte al club">
             <label>
               Nombre
-              <input type="text" name="name" autocomplete="name" required />
+              <input type="text" name="name" id="unete-name" autocomplete="name" required />
             </label>
             <label>
               Email
-              <input type="email" name="email" autocomplete="email" required />
+              <input type="email" name="email" id="unete-email" autocomplete="email" required />
+            </label>
+            <label>
+              Asunto
+              <input type="text" name="subject" id="unete-subject" placeholder="¿De qué quieres hablar?" />
             </label>
             <label>
               Mensaje
-              <textarea name="message" rows="4" required></textarea>
+              <textarea name="message" id="unete-message" rows="4" required placeholder="Cuéntanos quién eres y cuándo te gustaría venir a probar."></textarea>
             </label>
             <button type="submit" class="btn btn-primary">Enviar</button>
             <p class="form-note small muted">
