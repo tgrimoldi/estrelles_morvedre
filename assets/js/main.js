@@ -98,5 +98,134 @@
       }
     });
   });
+
+  const isImageHref = (href) => /\.(jpe?g|png|webp|gif)$/i.test(href || "");
+
+  const cronicaGalleries = Array.from(document.querySelectorAll(".cronica"))
+    .map((cronica) => Array.from(cronica.querySelectorAll("a[href]")).filter((a) => isImageHref(a.getAttribute("href"))))
+    .filter((links) => links.length > 0);
+
+  if (cronicaGalleries.length) {
+    const lightbox = document.createElement("div");
+    lightbox.className = "lightbox";
+    lightbox.setAttribute("aria-hidden", "true");
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-modal", "true");
+    lightbox.setAttribute("aria-label", "Visor de imágenes");
+    lightbox.innerHTML = `
+      <button class="lightbox-close" type="button" aria-label="Cerrar (Esc)">×</button>
+      <button class="lightbox-prev" type="button" aria-label="Anterior (←)">‹</button>
+      <button class="lightbox-next" type="button" aria-label="Siguiente (→)">›</button>
+      <figure class="lightbox-stage">
+        <img class="lightbox-img" alt="" />
+        <figcaption class="lightbox-counter" aria-live="polite"></figcaption>
+      </figure>
+    `;
+    document.body.appendChild(lightbox);
+
+    const imgEl = lightbox.querySelector(".lightbox-img");
+    const counterEl = lightbox.querySelector(".lightbox-counter");
+    const closeBtn = lightbox.querySelector(".lightbox-close");
+    const prevBtn = lightbox.querySelector(".lightbox-prev");
+    const nextBtn = lightbox.querySelector(".lightbox-next");
+
+    let currentGroup = [];
+    let currentIndex = 0;
+    let lastFocused = null;
+
+    const preload = (i) => {
+      const item = currentGroup[i];
+      if (item) {
+        const img = new Image();
+        img.src = item.src;
+      }
+    };
+
+    const show = (index) => {
+      if (!currentGroup.length) return;
+      const len = currentGroup.length;
+      currentIndex = ((index % len) + len) % len;
+      const item = currentGroup[currentIndex];
+      imgEl.src = item.src;
+      imgEl.alt = item.alt || "";
+      counterEl.textContent = `${currentIndex + 1} / ${len}`;
+      const showNav = len > 1;
+      prevBtn.hidden = !showNav;
+      nextBtn.hidden = !showNav;
+      counterEl.hidden = !showNav;
+      preload(currentIndex + 1);
+      preload(currentIndex - 1);
+    };
+
+    const open = (group, index, trigger) => {
+      currentGroup = group;
+      lastFocused = trigger || document.activeElement;
+      show(index);
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+    };
+
+    const close = () => {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      imgEl.removeAttribute("src");
+      currentGroup = [];
+      if (lastFocused && typeof lastFocused.focus === "function") {
+        lastFocused.focus({ preventScroll: true });
+      }
+      lastFocused = null;
+    };
+
+    cronicaGalleries.forEach((links) => {
+      const group = links.map((a) => ({
+        src: a.getAttribute("href"),
+        alt: a.querySelector("img")?.alt || "",
+      }));
+      links.forEach((link, i) => {
+        link.addEventListener("click", (e) => {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+          e.preventDefault();
+          open(group, i, link);
+        });
+      });
+    });
+
+    closeBtn.addEventListener("click", close);
+    prevBtn.addEventListener("click", () => show(currentIndex - 1));
+    nextBtn.addEventListener("click", () => show(currentIndex + 1));
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox || e.target === imgEl.parentElement) close();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("open")) return;
+      if (e.key === "Escape") { e.preventDefault(); close(); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); show(currentIndex - 1); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); show(currentIndex + 1); }
+    });
+
+    let touchStartX = null;
+    let touchStartY = null;
+    lightbox.addEventListener("touchstart", (e) => {
+      if (e.touches.length !== 1) return;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    lightbox.addEventListener("touchend", (e) => {
+      if (touchStartX === null) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) show(currentIndex + 1);
+        else show(currentIndex - 1);
+      }
+      touchStartX = null;
+      touchStartY = null;
+    }, { passive: true });
+  }
 })();
 
