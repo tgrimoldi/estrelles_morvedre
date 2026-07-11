@@ -1102,6 +1102,10 @@ a:hover { color: var(--pink); }
   display: grid;
   gap: .35rem;
 }
+.footer-brand-mark {
+  height: 40px;
+  width: 40px;
+}
 .small-brand strong {
   font-family: "Bebas Neue", Impact, sans-serif;
   font-size: 1.2rem;
