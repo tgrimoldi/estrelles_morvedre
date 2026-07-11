@@ -312,7 +312,7 @@ a:hover { color: var(--pink); }
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   background: #fff;
   padding: 1.25rem;
@@ -480,10 +480,13 @@ a:hover { color: var(--pink); }
 }
 .contact-list li {
   display: grid;
-  grid-template-columns: 130px 1fr;
+  grid-template-columns: 130px minmax(0, 1fr);
   gap: 1rem;
   padding: .6rem 0;
   border-bottom: 1px dashed var(--line);
+}
+.contact-list li > a {
+  overflow-wrap: anywhere;
 }
 .contact-list span {
   text-transform: uppercase;
@@ -943,11 +946,11 @@ a:hover { color: var(--pink); }
 
 .sponsor-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
-@media (min-width: 600px) { .sponsor-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 900px) { .sponsor-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 600px) { .sponsor-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 900px) { .sponsor-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
 .sponsor {
   background: #fff;
