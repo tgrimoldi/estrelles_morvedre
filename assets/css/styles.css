@@ -1064,6 +1064,31 @@ a:hover { color: var(--pink); }
 }
 .site-footer a { color: rgba(255,255,255,.88); }
 .site-footer a:hover { color: var(--star); }
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: .9rem 0 0;
+  font-size: .85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.88);
+}
+.footer-social a {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.1);
+  transition: background .15s ease, color .15s ease;
+  flex-shrink: 0;
+}
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  background: var(--pink);
+  color: #fff;
+}
 .footer-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr;
