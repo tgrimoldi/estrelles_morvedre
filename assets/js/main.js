@@ -22,7 +22,7 @@
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   const CLUB_EMAIL = "rugbiclubestrelesdemorvedre@gmail.com";
-  const CLUB_WA = "34661543893";
+  const CLUB_WA = "34647644971";
 
   const form = document.getElementById("unete-form");
   const subjectField = document.getElementById("unete-subject");
