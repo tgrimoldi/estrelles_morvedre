@@ -1035,10 +1035,11 @@ a:hover { color: var(--pink); }
   border-color: rgba(244, 15, 202, .35);
   box-shadow: 0 12px 28px rgba(1, 74, 197, .14);
 }
+/* Cada logo lleva su --w (en index.html), calculado para que todos
+   ocupen más o menos la misma superficie sea cual sea su proporción. */
 .sponsor img {
-  max-width: 80%;
-  max-height: 70%;
-  object-fit: contain;
+  width: var(--w, 70%);
+  height: auto;
 }
 .sponsor-name {
   font-family: "Bebas Neue", Impact, sans-serif;
@@ -1073,6 +1074,12 @@ a:hover { color: var(--pink); }
   margin: 0;
 }
 .sponsor-cta:hover .sponsor-cta-text { color: rgba(255, 255, 255, .95); }
+@media (max-width: 599px) {
+  /* Que la tarjeta de patrocinio no quede más alta que las de los logos */
+  .sponsor-cta { padding: .75rem; }
+  .sponsor-cta .sponsor-cta-title { font-size: 1.2rem; }
+  .sponsor-cta .sponsor-cta-text { font-size: .75rem; }
+}
 
 /* Map */
 .map-block {
