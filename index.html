@@ -143,7 +143,7 @@
         <p>
           Esta temporada 2026/27 nos hemos fusionado con Penyagolosa, nuestros
           amigos de Vila-real, y competimos juntos en la Tercera Territorial
-          de Valencia como <strong>Penyagolosa/Estreles</strong>. Entrenamos
+          de Valencia como <strong>Penyagolosa/<wbr>Estreles</strong>. Entrenamos
           martes y jueves de 20:00 a 22:00 en el campo de Baladre.
         </p>
         <div class="cta-row">
@@ -159,7 +159,7 @@
         <h2>Próximos partidos equipo senior</h2>
         <p>
           Temporada 2026/27 en la Tercera Territorial de Valencia. Jugamos
-          como <strong>Penyagolosa/Estreles</strong>, junto a nuestros amigos
+          como <strong>Penyagolosa/<wbr>Estreles</strong>, junto a nuestros amigos
           de Vila-real.
         </p>
         <div class="matches">
@@ -167,7 +167,7 @@
             <time class="match-date" datetime="2026-10-18"><span class="day">18</span><span class="month">Oct</span></time>
             <div class="match-info">
               <p class="match-comp">Tercera Territorial · J2</p>
-              <p class="match-teams"><strong>Penyagolosa/Estreles</strong> vs Edetans</p>
+              <p class="match-teams"><strong>Penyagolosa/<wbr>Estreles</strong> vs Edetans</p>
               <p class="match-meta">Hora por confirmar · Localía a confirmar (Vila-real o Sagunt)</p>
             </div>
             <span class="badge badge-home">Local</span>
@@ -176,7 +176,7 @@
             <time class="match-date" datetime="2026-11-08"><span class="day">8</span><span class="month">Nov</span></time>
             <div class="match-info">
               <p class="match-comp">Tercera Territorial · J3</p>
-              <p class="match-teams">La Safor vs <strong>Penyagolosa/Estreles</strong></p>
+              <p class="match-teams">La Safor vs <strong>Penyagolosa/<wbr>Estreles</strong></p>
               <p class="match-meta">Hora por confirmar · Campo de La Safor</p>
             </div>
             <span class="badge badge-away">Fuera</span>
@@ -185,7 +185,7 @@
             <time class="match-date" datetime="2026-11-29"><span class="day">29</span><span class="month">Nov</span></time>
             <div class="match-info">
               <p class="match-comp">Tercera Territorial · J4</p>
-              <p class="match-teams"><strong>Penyagolosa/Estreles</strong> vs Inter</p>
+              <p class="match-teams"><strong>Penyagolosa/<wbr>Estreles</strong> vs Inter</p>
               <p class="match-meta">Hora por confirmar · Localía a confirmar (Vila-real o Sagunt)</p>
             </div>
             <span class="badge badge-home">Local</span>
@@ -194,7 +194,7 @@
             <time class="match-date" datetime="2026-12-13"><span class="day">13</span><span class="month">Dic</span></time>
             <div class="match-info">
               <p class="match-comp">Tercera Territorial · J5</p>
-              <p class="match-teams">Teruel vs <strong>Penyagolosa/Estreles</strong></p>
+              <p class="match-teams">Teruel vs <strong>Penyagolosa/<wbr>Estreles</strong></p>
               <p class="match-meta">Hora por confirmar · Campo de Teruel</p>
             </div>
             <span class="badge badge-away">Fuera</span>
@@ -506,8 +506,10 @@
               Mensaje
               <textarea name="message" id="unete-message" rows="4" required placeholder="Cuéntanos quién eres y cuándo te gustaría venir a probar."></textarea>
             </label>
+            <!-- Trampa anti-spam: los bots la rellenan, las personas no la ven -->
+            <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Enviar email</button>
+              <button type="submit" class="btn btn-primary" id="unete-submit">Enviar mensaje</button>
               <button type="button" id="unete-whatsapp" class="btn btn-whatsapp" aria-label="Enviar por WhatsApp">
                 <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
                   <path fill="currentColor" d="M16 0C7.164 0 0 7.164 0 16c0 2.823.737 5.578 2.135 8.013L.071 32l8.176-2.13C10.685 31.247 13.319 32 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.333c-2.394 0-4.733-.641-6.787-1.853l-.486-.288-5.058 1.32 1.347-4.926-.317-.504C3.51 20.847 2.667 18.464 2.667 16c0-7.353 5.981-13.333 13.333-13.333S29.333 8.647 29.333 16 23.353 29.333 16 29.333zm7.522-9.835c-.412-.207-2.437-1.203-2.815-1.34-.377-.137-.652-.207-.927.207-.275.413-1.065 1.34-1.305 1.615-.24.275-.481.31-.893.103-.412-.207-1.74-.642-3.314-2.046-1.225-1.093-2.052-2.443-2.292-2.856-.24-.412-.026-.635.181-.841.186-.185.412-.481.618-.722.207-.241.275-.413.412-.687.137-.275.069-.516-.034-.722-.103-.206-.927-2.234-1.27-3.058-.334-.802-.673-.693-.927-.706a18 18 0 00-.79-.014c-.275 0-.722.103-1.099.516-.377.412-1.443 1.41-1.443 3.438 0 2.029 1.477 3.989 1.683 4.264.206.275 2.91 4.439 7.05 6.226.985.426 1.754.68 2.354.87.989.314 1.889.27 2.6.164.793-.119 2.437-.997 2.781-1.959.343-.961.343-1.787.24-1.959-.103-.171-.378-.275-.79-.482z"/>
@@ -515,9 +517,11 @@
                 WhatsApp
               </button>
             </div>
+            <p class="form-status" id="unete-status" role="status" aria-live="polite" hidden></p>
             <p class="form-note small muted">
-              Dos formas: enviar te abre el cliente de correo; WhatsApp lleva la
-              conversación al chat con el club.
+              Dos formas: "Enviar mensaje" nos lo hace llegar por email y te
+              responderemos a tu correo; WhatsApp lleva la conversación al chat
+              con el club.
             </p>
           </form>
         </div>
