@@ -99,10 +99,20 @@
           }),
         });
         const data = await res.json().catch(() => ({}));
-        if (!res.ok || String(data.success) !== "true") throw new Error(data.message || res.status);
+        if (!res.ok || String(data.success) !== "true") {
+          throw new Error(data.message || `HTTP ${res.status}`);
+        }
         form.reset();
         showStatus("¡Gracias! Hemos recibido tu mensaje y te responderemos por email muy pronto.", "ok");
       } catch (err) {
+        console.error("Formulario: el envío a FormSubmit ha fallado →", err.message);
+        if (/activat/i.test(err.message)) {
+          showStatus(
+            "El formulario todavía no está activado. Hemos enviado el enlace de activación al email del club; en cuanto se active, los mensajes llegarán con normalidad. Mientras tanto, escríbenos por WhatsApp.",
+            "error"
+          );
+          return;
+        }
         showStatus(
           `No hemos podido enviar el mensaje. Prueba por WhatsApp o escríbenos a ${CLUB_EMAIL}.`,
           "error"
