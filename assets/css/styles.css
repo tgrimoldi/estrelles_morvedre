@@ -975,6 +975,15 @@ a:hover { color: var(--pink); }
 /* Categorías inferiores subsections */
 .subsection { scroll-margin-top: 90px; }
 .subsection + .subsection { margin-top: 3rem; }
+.section-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
 .media-placeholder {
   aspect-ratio: 4 / 3;
   border-radius: var(--radius);
