@@ -53,10 +53,11 @@
     return { subject, body };
   };
 
-  // El formulario se envía a FormSubmit, que lo reenvía por email al club.
-  // La primera vez hay que activar el servicio desde el enlace que llega
-  // a CLUB_EMAIL.
-  const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CLUB_EMAIL}`;
+  // El formulario se envía a Web3Forms, que lo reenvía por email a CLUB_EMAIL.
+  // La access key es pública (va en el navegador) y se gestiona desde
+  // web3forms.com con la cuenta del club.
+  const FORM_ENDPOINT = "https://api.web3forms.com/submit";
+  const WEB3FORMS_KEY = "dacacecf-0b80-418c-890d-6f8db474cd9e";
   const submitBtn = document.getElementById("unete-submit");
   const statusEl = document.getElementById("unete-status");
 
@@ -70,7 +71,7 @@
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      if (fieldVal('[name="_honey"]')) return;
+      if (form.querySelector('[name="botcheck"]')?.checked) return;
 
       const name = fieldVal('[name="name"]');
       const email = fieldVal('[name="email"]');
@@ -89,13 +90,14 @@
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify({
-            nombre: name,
-            email,
-            asunto: subject,
-            mensaje: message,
-            _subject: `Web · ${subject} · ${name}`,
-            _replyto: email,
-            _template: "table",
+            access_key: WEB3FORMS_KEY,
+            subject: `Web · ${subject} · ${name}`,
+            from_name: "Web Estreles de Morvedre",
+            replyto: email,
+            Nombre: name,
+            Email: email,
+            Asunto: subject,
+            Mensaje: message,
           }),
         });
         const data = await res.json().catch(() => ({}));
@@ -105,14 +107,7 @@
         form.reset();
         showStatus("¡Gracias! Hemos recibido tu mensaje y te responderemos por email muy pronto.", "ok");
       } catch (err) {
-        console.error("Formulario: el envío a FormSubmit ha fallado →", err.message);
-        if (/activat/i.test(err.message)) {
-          showStatus(
-            "El formulario todavía no está activado. Hemos enviado el enlace de activación al email del club; en cuanto se active, los mensajes llegarán con normalidad. Mientras tanto, escríbenos por WhatsApp.",
-            "error"
-          );
-          return;
-        }
+        console.error("Formulario: el envío a Web3Forms ha fallado →", err.message);
         showStatus(
           `No hemos podido enviar el mensaje. Prueba por WhatsApp o escríbenos a ${CLUB_EMAIL}.`,
           "error"
