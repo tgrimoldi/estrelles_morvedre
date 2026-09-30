@@ -984,6 +984,8 @@ a:hover { color: var(--pink); }
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
+/* Mantiene visible la firma del fotógrafo (abajo a la derecha) al recortar a 4:3 */
+.section-photo-right { object-position: right center; }
 .media-placeholder {
   aspect-ratio: 4 / 3;
   border-radius: var(--radius);
