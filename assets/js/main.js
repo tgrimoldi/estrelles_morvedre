@@ -53,14 +53,66 @@
     return { subject, body };
   };
 
+  // El formulario se envía a FormSubmit, que lo reenvía por email al club.
+  // La primera vez hay que activar el servicio desde el enlace que llega
+  // a CLUB_EMAIL.
+  const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CLUB_EMAIL}`;
+  const submitBtn = document.getElementById("unete-submit");
+  const statusEl = document.getElementById("unete-status");
+
+  const showStatus = (text, kind) => {
+    if (!statusEl) return;
+    statusEl.textContent = text;
+    statusEl.className = `form-status form-status--${kind}`;
+    statusEl.hidden = false;
+  };
+
   if (form) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      if (fieldVal('[name="_honey"]')) return;
+
+      const name = fieldVal('[name="name"]');
       const email = fieldVal('[name="email"]');
-      const { subject, body } = composeMessage();
-      const params = new URLSearchParams({ subject, body });
-      const replyTo = email ? `&reply-to=${encodeURIComponent(email)}` : "";
-      window.location.href = `mailto:${CLUB_EMAIL}?${params.toString()}${replyTo}`;
+      const subject = fieldVal('[name="subject"]') || "Mensaje desde la web";
+      const message = fieldVal('[name="message"]');
+
+      const label = submitBtn ? submitBtn.textContent : "";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando…";
+      }
+      if (statusEl) statusEl.hidden = true;
+
+      try {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            nombre: name,
+            email,
+            asunto: subject,
+            mensaje: message,
+            _subject: `Web · ${subject} · ${name}`,
+            _replyto: email,
+            _template: "table",
+          }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || String(data.success) !== "true") throw new Error(data.message || res.status);
+        form.reset();
+        showStatus("¡Gracias! Hemos recibido tu mensaje y te responderemos por email muy pronto.", "ok");
+      } catch (err) {
+        showStatus(
+          `No hemos podido enviar el mensaje. Prueba por WhatsApp o escríbenos a ${CLUB_EMAIL}.`,
+          "error"
+        );
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = label;
+        }
+      }
     });
   }
 
