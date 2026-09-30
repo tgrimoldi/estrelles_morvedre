@@ -9,10 +9,49 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="Estreles" />
+  <link rel="canonical" href="https://tgrimoldi.github.io/estrelles_morvedre/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Estreles de Morvedre Rugby Club" />
+  <meta property="og:title" content="Estreles de Morvedre Rugby Club" />
+  <meta property="og:description" content="Club de rugby de Sagunt fundado en 2019. Pasión, esfuerzo y compañerismo. Únete al equipo." />
+  <meta property="og:url" content="https://tgrimoldi.github.io/estrelles_morvedre/" />
+  <meta property="og:image" content="https://tgrimoldi.github.io/estrelles_morvedre/assets/img/hero-team.jpg" />
+  <meta property="og:image:width" content="1065" />
+  <meta property="og:image:height" content="710" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Estreles de Morvedre Rugby Club" />
+  <meta name="twitter:description" content="Club de rugby de Sagunt fundado en 2019. Pasión, esfuerzo y compañerismo." />
+  <meta name="twitter:image" content="https://tgrimoldi.github.io/estrelles_morvedre/assets/img/hero-team.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsClub",
+    "name": "Estreles de Morvedre Rugby Club",
+    "url": "https://tgrimoldi.github.io/estrelles_morvedre/",
+    "logo": "https://tgrimoldi.github.io/estrelles_morvedre/assets/img/escudo-hd.png",
+    "image": "https://tgrimoldi.github.io/estrelles_morvedre/assets/img/hero-team.jpg",
+    "sport": "Rugby",
+    "foundingDate": "2019",
+    "email": "rugbiclubestrelesdemorvedre@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sagunt",
+      "addressRegion": "València",
+      "addressCountry": "ES"
+    },
+    "sameAs": [
+      "https://www.instagram.com/estreles_de_morvedre_rugbyclub/"
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -34,8 +73,15 @@
       <nav id="primary-nav" class="primary-nav" aria-label="Principal">
         <ul>
           <li><a href="#club">El club</a></li>
-          <li><a href="#equipos">Equipos</a></li>
+          <li><a href="#primer-equipo">Primer Equipo</a></li>
           <li><a href="#calendario">Calendario</a></li>
+          <li class="has-dropdown">
+            <a href="#categorias-inferiores">Categorías Inferiores</a>
+            <ul class="dropdown">
+              <li><a href="#femenino">Femenino</a></li>
+              <li><a href="#escuela">Escuela</a></li>
+            </ul>
+          </li>
           <li><a href="#eventos">Eventos</a></li>
           <li><a href="#patrocinadores">Patrocinadores</a></li>
           <li><a href="#unete">Únete</a></li>
@@ -65,14 +111,14 @@
       <div class="container two-col">
         <div>
           <p class="eyebrow">El club</p>
-          <h2>Rugby valenciano, raíces de Morvedre</h2>
+          <h2>Rugby con raíces en Sagunt: valores, inclusión y pasión por el equipo</h2>
           <p>
-            Somos un club de rugby con base en Sagunt, fundado en 2019 y abierto a
-            jugadores y jugadoras de todas las edades y niveles. Lo que nos define
-            es el grupo: una afición que se cuida dentro y fuera del campo.
-          </p>
-          <p>
-            Entrenamos, competimos y celebramos. Y siempre con sitio para uno más.
+            Somos el único club de rugby de Sagunto y la comarca del Camp de
+            Morvedre. Nacimos para ofrecer un deporte diferente y formar una
+            escuela de ciudadanía basada en el respeto, la disciplina y la
+            inclusión social. Desde la cantera hasta los equipos Sénior y
+            Veteranos, en el campo de Baladre crecemos y hacemos equipo dentro
+            y fuera del césped.
           </p>
           <ul class="bullets">
             <li>Entrenamientos para senior, femenino y escuela</li>
@@ -81,34 +127,26 @@
           </ul>
         </div>
         <aside class="stats" aria-label="Cifras del club">
-          <div class="stat"><span class="num">+80</span><span class="label">Jugadores activos</span></div>
-          <div class="stat"><span class="num">3</span><span class="label">Equipos federados</span></div>
-          <div class="stat"><span class="num">2</span><span class="label">Entrenamientos / semana</span></div>
-          <div class="stat"><span class="num">1</span><span class="label">Tercer tiempo / partido</span></div>
+          <div class="stat" title="Entre la escuela, el sénior y los veteranos"><span class="num">+60</span><span class="label">Licencias federativas</span></div>
+          <div class="stat" title="La temporada 26-27 el equipo senior es 100% Estreles"><span class="num">100%</span><span class="label">Independientes</span></div>
+          <div class="stat" title="Somos la única entidad de rugby en Sagunto y el Camp de Morvedre"><span class="num">1</span><span class="label">Único club de la comarca</span></div>
+          <div class="stat" title="Creciendo, promoviendo la inclusión y echando raíces en Sagunt desde entonces"><span class="num">2019</span><span class="label">Año de fundación</span></div>
         </aside>
       </div>
     </section>
 
-    <section id="equipos" class="section section-alt">
+    <section id="primer-equipo" class="section section-alt">
       <div class="container">
-        <p class="eyebrow">Equipos</p>
-        <h2>Un club, varios equipos</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Senior masculino</h3>
-            <p>Compite en liga territorial. Entrenamientos martes y jueves a las 20:30.</p>
-            <a class="card-link" href="#unete" data-prefill="Quiero probar · Senior masculino">Quiero probar →</a>
-          </article>
-          <article class="card">
-            <h3>Senior femenino</h3>
-            <p>Equipo en crecimiento, abierto a jugadoras nuevas con o sin experiencia.</p>
-            <a class="card-link" href="#unete" data-prefill="Quiero probar · Senior femenino">Quiero probar →</a>
-          </article>
-          <article class="card">
-            <h3>Escuela y cantera</h3>
-            <p>Sub-8 a sub-16. Aprender, jugar y crecer con el rugby como herramienta.</p>
-            <a class="card-link" href="#unete" data-prefill="Información · Escuela y cantera">Más información →</a>
-          </article>
+        <p class="eyebrow">Primer Equipo</p>
+        <h2>Nuestro equipo sénior</h2>
+        <p>
+          Compite en la Tercera Territorial de Valencia, en alianza con el
+          Club Peñagolosa para poder disputar la competición. Entrenamos
+          martes y jueves de 20:00 a 22:00 en el campo de Baladre.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#unete" data-prefill="Quiero probar · Primer equipo">Quiero probar →</a>
+          <a class="btn btn-ghost-blue" href="#calendario">Ver calendario →</a>
         </div>
       </div>
     </section>
@@ -116,41 +154,79 @@
     <section id="calendario" class="section">
       <div class="container">
         <p class="eyebrow">Calendario</p>
-        <h2>Próximos partidos</h2>
-        <div class="matches">
-          <article class="match">
-            <div class="match-date"><span class="day">10</span><span class="month">May</span></div>
-            <div class="match-info">
-              <p class="match-comp">Liga territorial · J20</p>
-              <p class="match-teams"><strong>Estreles</strong> vs CR Visitante</p>
-              <p class="match-meta">17:00 · Camp municipal de Sagunt</p>
-            </div>
-            <span class="badge badge-home">Casa</span>
-          </article>
-          <article class="match">
-            <div class="match-date"><span class="day">17</span><span class="month">May</span></div>
-            <div class="match-info">
-              <p class="match-comp">Liga territorial · J21</p>
-              <p class="match-teams">CR Costa vs <strong>Estreles</strong></p>
-              <p class="match-meta">18:00 · Campo del rival</p>
-            </div>
-            <span class="badge badge-away">Fuera</span>
-          </article>
-          <article class="match">
-            <div class="match-date"><span class="day">24</span><span class="month">May</span></div>
-            <div class="match-info">
-              <p class="match-comp">Amistoso fin de temporada</p>
-              <p class="match-teams"><strong>Estreles</strong> vs Veterans XV</p>
-              <p class="match-meta">12:00 · Camp municipal de Sagunt</p>
-            </div>
-            <span class="badge badge-home">Casa</span>
-          </article>
-        </div>
-        <p class="muted small">Calendario provisional. Los datos definitivos se publicarán en redes.</p>
+        <h2>Próximos partidos equipo senior</h2>
+        <p>
+          Competimos en la Tercera Territorial de Valencia, en alianza con el
+          Club Peñagolosa para poder disputar la competición.
+        </p>
+        <p class="muted small">
+          El calendario de la temporada se publicará a principios de
+          septiembre. Vuelve pronto para consultar las fechas.
+        </p>
       </div>
     </section>
 
-    <section id="eventos" class="section section-alt">
+    <section id="categorias-inferiores" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Categorías Inferiores</p>
+          <h2>Femenino y Escuela</h2>
+          <p class="section-lead muted">
+            Así crecen las categorías que forman la base del club.
+          </p>
+        </div>
+
+        <div class="subsection" id="femenino">
+          <div class="two-col">
+            <div>
+              <p class="eyebrow">Femenino</p>
+              <h3 class="map-title">Rugby femenino</h3>
+              <p>
+                Impulsamos el rugby femenino mediante nuestra alianza
+                estratégica con Valquirias Rugby, uniendo fuerzas entre
+                varios clubes valencianos para garantizar competición
+                regular y de máximo nivel. Somos un proyecto en crecimiento
+                constante que ya ha cosechado grandes hitos, como un
+                subcampeonato de España en categorías de base. Buscamos
+                continuamente jugadoras que quieran probar, con o sin
+                experiencia previa, en un entorno de aprendizaje,
+                compañerismo y superación.
+              </p>
+              <a class="btn btn-primary" href="#unete" data-prefill="Quiero probar · Femenino">Quiero probar →</a>
+            </div>
+            <div class="media-placeholder" role="img" aria-label="Foto del equipo femenino próximamente">
+              <span>Foto próximamente</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="escuela">
+          <div class="two-col">
+            <div class="media-placeholder" role="img" aria-label="Foto de la escuela próximamente">
+              <span>Foto próximamente</span>
+            </div>
+            <div>
+              <p class="eyebrow">Escuela</p>
+              <h3 class="map-title">Escuela (M6 a M18)</h3>
+              <p>
+                Formamos a los más pequeños en los valores del rugby a
+                través de un aprendizaje adaptado, seguro y divertido. Para
+                asegurar que todos los niños y niñas de Sagunto dispongan de
+                una estructura de competición regular y de calidad, sumamos
+                fuerzas con el Club de Rugby Coyotes de Moncada. Esta
+                alianza estratégica nos permite cubrir todas las categorías
+                base y garantizar que jueguen, compitan y crezcan en el
+                campo sin importar su edad. Entrenamos martes y jueves de
+                18:00 a 19:30.
+              </p>
+              <a class="btn btn-primary" href="#unete" data-prefill="Información · Escuela">Más información →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="eventos" class="section">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Eventos</p>
@@ -161,7 +237,75 @@
           </p>
         </div>
 
+        <article class="cronica cronica-upcoming" id="cronica-mal-de-altura-26">
+          <header class="cronica-head">
+            <span class="event-tag">Próxima edición 2026</span>
+            <h3 class="cronica-title">Mal de Altura</h3>
+            <p class="cronica-meta">2026 · Fechas por confirmar</p>
+          </header>
+          <p class="cronica-desc">
+            Ya estamos preparando la vuelta de Mal de Altura en 2026. En
+            cuanto cerremos las fechas, las anunciaremos aquí y en el
+            calendario.
+          </p>
+        </article>
+
         <div class="cronicas">
+          <article class="cronica" id="cronica-torneo-del-jamon-26">
+            <header class="cronica-head">
+              <span class="event-tag event-tag-past">Edición 2026</span>
+              <h3 class="cronica-title">Torneo del Jamón</h3>
+              <p class="cronica-meta">Septiembre 2026 · Teruel</p>
+            </header>
+            <a data-lightbox="torneo-del-jamon-26" class="cronica-hero" href="assets/img/eventos/torneo-del-jamon-26/portada-web.jpg" aria-label="Abrir portada del Torneo del Jamón 2026">
+              <img src="assets/img/eventos/torneo-del-jamon-26/portada-web.jpg"
+                   alt="Touch en el aire durante el Torneo del Jamón 2026 en Teruel"
+                   loading="lazy" />
+            </a>
+            <p class="cronica-desc">
+              Volvimos a Teruel a jugar el Torneo del Jamón. Partidos
+              intensos y una foto conjunta con el resto de equipos que lo
+              dice todo del ambiente que se vive fuera del campo.
+            </p>
+            <div class="cronica-photos">
+              <div class="gallery-grid" data-collapsed="true" id="gallery-torneo-del-jamon-26">
+              <a data-lightbox="torneo-del-jamon-26" href="assets/img/eventos/torneo-del-jamon-26/01-web.jpg"><img loading="lazy" src="assets/img/eventos/torneo-del-jamon-26/01-thumb.jpg" alt="" /></a>
+              <a data-lightbox="torneo-del-jamon-26" href="assets/img/eventos/torneo-del-jamon-26/02-web.jpg"><img loading="lazy" src="assets/img/eventos/torneo-del-jamon-26/02-thumb.jpg" alt="" /></a>
+              <a data-lightbox="torneo-del-jamon-26" href="assets/img/eventos/torneo-del-jamon-26/03-web.jpg"><img loading="lazy" src="assets/img/eventos/torneo-del-jamon-26/03-thumb.jpg" alt="" /></a>
+              <a data-lightbox="torneo-del-jamon-26" href="assets/img/eventos/torneo-del-jamon-26/04-web.jpg"><img loading="lazy" src="assets/img/eventos/torneo-del-jamon-26/04-thumb.jpg" alt="" /></a>
+              <a data-lightbox="torneo-del-jamon-26" href="assets/img/eventos/torneo-del-jamon-26/05-web.jpg"><img loading="lazy" src="assets/img/eventos/torneo-del-jamon-26/05-thumb.jpg" alt="" /></a>
+              <a data-lightbox="torneo-del-jamon-26" href="assets/img/eventos/torneo-del-jamon-26/06-web.jpg"><img loading="lazy" src="assets/img/eventos/torneo-del-jamon-26/06-thumb.jpg" alt="" /></a>
+              <a data-lightbox="torneo-del-jamon-26" href="assets/img/eventos/torneo-del-jamon-26/07-web.jpg"><img loading="lazy" src="assets/img/eventos/torneo-del-jamon-26/07-thumb.jpg" alt="" /></a>
+              <a data-lightbox="torneo-del-jamon-26" href="assets/img/eventos/torneo-del-jamon-26/08-web.jpg"><img loading="lazy" src="assets/img/eventos/torneo-del-jamon-26/08-thumb.jpg" alt="" /></a>
+              <a data-lightbox="torneo-del-jamon-26" href="assets/img/eventos/torneo-del-jamon-26/09-web.jpg"><img loading="lazy" src="assets/img/eventos/torneo-del-jamon-26/09-thumb.jpg" alt="" /></a>
+              </div>
+              <button class="btn btn-ghost-blue cronica-toggle"
+                      type="button"
+                      aria-controls="gallery-torneo-del-jamon-26"
+                      aria-expanded="false"
+                      data-label-collapsed="Ver las 9 fotos →"
+                      data-label-expanded="Mostrar menos">
+                Ver las 9 fotos →
+              </button>
+            </div>
+          </article>
+
+          <article class="cronica" id="cronica-visita-francesa-25">
+            <header class="cronica-head">
+              <span class="event-tag event-tag-past">2025</span>
+              <h3 class="cronica-title">Visita del equipo francés</h3>
+              <p class="cronica-meta">2025 · Encuentro amistoso</p>
+            </header>
+            <div class="media-placeholder cronica-hero" role="img" aria-label="Fotos de la visita francesa próximamente">
+              <span>Fotos próximamente</span>
+            </div>
+            <p class="cronica-desc">
+              Recibimos la visita de un equipo francés amigo para disputar
+              un partido y compartir tercer tiempo. Muy pronto añadimos las
+              fotos de la jornada.
+            </p>
+          </article>
+
           <article class="cronica" id="cronica-mal-de-altura-25">
             <header class="cronica-head">
               <span class="event-tag event-tag-past">Edición 2025</span>
@@ -280,9 +424,11 @@
         </div>
 
         <div class="sponsor-grid">
-          <article class="sponsor"><p class="sponsor-name">Tu marca aquí</p></article>
-          <article class="sponsor"><p class="sponsor-name">Tu marca aquí</p></article>
-          <article class="sponsor"><p class="sponsor-name">Tu marca aquí</p></article>
+          <article class="sponsor"><img src="assets/img/sponsors/ajuntament-sagunt.png" alt="Ajuntament de Sagunt" loading="lazy" /></article>
+          <article class="sponsor"><img src="assets/img/sponsors/saggas.png" alt="SAGGAS" loading="lazy" /></article>
+          <article class="sponsor"><img src="assets/img/sponsors/plp.png" alt="Plataforma Logística Portuaria" loading="lazy" /></article>
+          <article class="sponsor"><img src="assets/img/sponsors/gasoprix.jpg" alt="Gasoprix" loading="lazy" /></article>
+          <article class="sponsor"><img src="assets/img/sponsors/lepicentre.png" alt="L'Epicentre" loading="lazy" /></article>
           <a class="sponsor sponsor-cta" href="mailto:rugbiclubestrelesdemorvedre@gmail.com?subject=Patrocinio%20Estreles%20de%20Morvedre">
             <p class="sponsor-cta-title">¿Quieres sumarte?</p>
             <p class="sponsor-cta-text">Escríbenos sobre patrocinio</p>
@@ -311,7 +457,7 @@
             <ul class="contact-list">
               <li><span>Email</span><a href="mailto:rugbiclubestrelesdemorvedre@gmail.com">rugbiclubestrelesdemorvedre@gmail.com</a></li>
               <li><span>Campo</span><a href="#como-llegar">Sagunt, València · ver mapa</a></li>
-              <li><span>Entrenamientos</span>Martes y jueves, 20:30</li>
+              <li><span>Entrenamientos</span>Senior: Ma/Ju 20:00–22:00 · Escuela: Ma/Ju 18:00–19:30</li>
               <li><span>Instagram</span>
                 <a href="https://www.instagram.com/estreles_de_morvedre_rugbyclub/" target="_blank" rel="noopener" aria-label="Instagram de Estreles de Morvedre">@estreles_de_morvedre_rugbyclub</a>
               </li>
@@ -410,8 +556,9 @@
         <nav aria-label="Pie">
           <ul>
             <li><a href="#club">El club</a></li>
-            <li><a href="#equipos">Equipos</a></li>
+            <li><a href="#primer-equipo">Primer Equipo</a></li>
             <li><a href="#calendario">Calendario</a></li>
+            <li><a href="#categorias-inferiores">Categorías Inferiores</a></li>
             <li><a href="#eventos">Eventos</a></li>
             <li><a href="#patrocinadores">Patrocinadores</a></li>
             <li><a href="#contacto">Contacto</a></li>
@@ -424,7 +571,7 @@
 
   <a class="wa-float"
      id="wa-float"
-     href="https://wa.me/34661543893?text=Hola%2C%20quiero%20info%20del%20club%20Estreles%20de%20Morvedre"
+     href="https://wa.me/34647644971?text=Hola%2C%20quiero%20info%20del%20club%20Estreles%20de%20Morvedre"
      target="_blank" rel="noopener"
      aria-label="Chatear con el club por WhatsApp">
     <svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">

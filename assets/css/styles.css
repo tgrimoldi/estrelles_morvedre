@@ -119,6 +119,38 @@ a:hover { color: var(--pink); }
   color: var(--pink);
 }
 
+.has-dropdown { position: relative; }
+.primary-nav .dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 801px) {
+  .has-dropdown .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    min-width: 190px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: .4rem 0;
+    z-index: 60;
+  }
+  .has-dropdown:hover .dropdown,
+  .has-dropdown:focus-within .dropdown {
+    display: flex;
+  }
+  .has-dropdown .dropdown a {
+    padding: .55rem 1rem;
+    border-bottom: 0;
+    white-space: nowrap;
+  }
+}
+
 .nav-toggle {
   display: none;
   background: none;
@@ -150,7 +182,7 @@ a:hover { color: var(--pink); }
     overflow: hidden;
     transition: max-height .25s ease;
   }
-  .primary-nav.open { max-height: 380px; }
+  .primary-nav.open { max-height: 480px; overflow-y: auto; }
   .primary-nav ul {
     flex-direction: column;
     padding: 1rem;
@@ -160,6 +192,12 @@ a:hover { color: var(--pink); }
     display: block;
     padding: .65rem 0;
     border-bottom: 1px solid var(--line);
+  }
+  .has-dropdown .dropdown {
+    padding-left: 1rem;
+  }
+  .has-dropdown .dropdown a {
+    font-size: .88rem;
   }
 }
 
@@ -933,6 +971,22 @@ a:hover { color: var(--pink); }
   border-color: var(--pink);
   color: var(--pink);
 }
+
+/* Categorías inferiores subsections */
+.subsection { scroll-margin-top: 90px; }
+.subsection + .subsection { margin-top: 3rem; }
+.media-placeholder {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  border: 1px dashed var(--line);
+  background: var(--paper-2);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-weight: 600;
+  text-align: center;
+}
+.cronica-upcoming { margin-bottom: 1.5rem; }
 
 /* Sponsors */
 .sponsors-intro {
