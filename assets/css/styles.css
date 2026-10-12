@@ -1,4 +1,5 @@
 :root {
+  --font-display: "Montserrat", "Inter", system-ui, sans-serif;
   --blue: #014AC5;
   --blue-deep: #013289;
   --blue-ink: #00256b;
@@ -84,11 +85,12 @@ a:hover { color: var(--pink); }
 }
 .brand-text { display: flex; flex-direction: column; line-height: 1; }
 .brand-text strong {
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-weight: 400;
-  font-size: 1.6rem;
-  letter-spacing: .04em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -.01em;
   color: var(--blue-deep);
+  line-height: 1.15;
 }
 .brand-text em {
   font-style: normal;
@@ -253,11 +255,11 @@ a:hover { color: var(--pink); }
   font-weight: 800;
 }
 .hero h1 {
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-weight: 400;
-  font-size: clamp(3rem, 8vw, 6rem);
-  line-height: .95;
-  letter-spacing: .02em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.34rem, 6.24vw, 4.68rem);
+  line-height: 1.05;
+  letter-spacing: -.01em;
   margin: 0 0 1rem;
   text-shadow: 0 2px 18px rgba(0, 18, 60, .45);
 }
@@ -310,12 +312,13 @@ a:hover { color: var(--pink); }
 }
 .section-alt { background: var(--paper-2); }
 .section h2 {
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-weight: 400;
-  font-size: clamp(2rem, 4.4vw, 3rem);
-  letter-spacing: .02em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.56rem, 3.43vw, 2.34rem);
+  letter-spacing: -.01em;
   margin: 0 0 1rem;
   color: var(--blue-deep);
+  line-height: 1.15;
 }
 .section .eyebrow { color: var(--pink); }
 
@@ -366,8 +369,9 @@ a:hover { color: var(--pink); }
   background: var(--paper-2);
 }
 .stat .num {
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-size: 2.4rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.87rem;
   color: var(--blue);
   line-height: 1;
 }
@@ -406,12 +410,13 @@ a:hover { color: var(--pink); }
 }
 .card:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(1,74,197,.18); border-color: rgba(244,15,202,.25); }
 .card h3 {
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-weight: 400;
-  font-size: 1.6rem;
-  letter-spacing: .03em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -.01em;
   margin: 0 0 .35rem;
   color: var(--blue-deep);
+  line-height: 1.15;
 }
 .card p { margin: 0 0 1rem; color: #2c3645; }
 .card-link { font-weight: 700; color: var(--pink); }
@@ -445,8 +450,9 @@ a:hover { color: var(--pink); }
   min-width: 64px;
 }
 .match-date .day {
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-size: 1.7rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.33rem;
   line-height: 1;
 }
 .match-date .month {
@@ -718,12 +724,13 @@ a:hover { color: var(--pink); }
 }
 .event-gallery-head { margin-bottom: 1rem; }
 .event-gallery-head h4 {
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-weight: 400;
-  font-size: 1.5rem;
-  letter-spacing: .03em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.17rem;
+  letter-spacing: -.01em;
   color: var(--blue-deep);
   margin: 0 0 .15rem;
+  line-height: 1.15;
 }
 
 /* Crónicas (event past editions) — mobile first */
@@ -758,10 +765,10 @@ a:hover { color: var(--pink); }
   width: fit-content;
 }
 .cronica-title {
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-weight: 400;
-  font-size: clamp(1.9rem, 6vw, 2.6rem);
-  letter-spacing: .02em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.48rem, 4.68vw, 2.03rem);
+  letter-spacing: -.01em;
   color: var(--blue-deep);
   margin: 0;
   line-height: 1;
@@ -965,12 +972,13 @@ a:hover { color: var(--pink); }
   font-size: .9rem;
 }
 .event-title {
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-weight: 400;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  letter-spacing: .02em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.25rem, 2.34vw, 1.72rem);
+  letter-spacing: -.01em;
   margin: 0 0 .35rem;
   color: var(--blue-deep);
+  line-height: 1.15;
 }
 .event-location { margin: 0 0 .9rem; color: var(--muted); font-weight: 500; }
 .event-desc { margin: 0 0 1.25rem; color: #2c3645; }
@@ -1062,11 +1070,13 @@ a:hover { color: var(--pink); }
   height: auto;
 }
 .sponsor-name {
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: .03em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.09rem;
+  letter-spacing: -.01em;
   color: var(--muted);
   margin: 0;
+  line-height: 1.15;
 }
 
 .sponsor-cta {
@@ -1081,11 +1091,13 @@ a:hover { color: var(--pink); }
 }
 .sponsor-cta:hover { color: var(--star); border-color: transparent; }
 .sponsor-cta .sponsor-cta-title {
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-size: 1.5rem;
-  letter-spacing: .03em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.17rem;
+  letter-spacing: -.01em;
   margin: 0 0 .25rem;
   color: inherit;
+  line-height: 1.15;
 }
 .sponsor-cta .sponsor-cta-text {
   font-size: .85rem;
@@ -1097,7 +1109,7 @@ a:hover { color: var(--pink); }
 @media (max-width: 599px) {
   /* Que la tarjeta de patrocinio no quede más alta que las de los logos */
   .sponsor-cta { padding: .75rem; }
-  .sponsor-cta .sponsor-cta-title { font-size: 1.2rem; }
+  .sponsor-cta .sponsor-cta-title { font-size: .95rem; }
   .sponsor-cta .sponsor-cta-text { font-size: .75rem; }
 }
 
@@ -1116,12 +1128,13 @@ a:hover { color: var(--pink); }
 }
 .map-head .eyebrow { margin-bottom: .35rem; }
 .map-title {
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-weight: 400;
-  font-size: clamp(1.5rem, 3.4vw, 2rem);
-  letter-spacing: .02em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.17rem, 2.65vw, 1.56rem);
+  letter-spacing: -.01em;
   color: var(--blue-deep);
   margin: 0;
+  line-height: 1.15;
 }
 .map-embed {
   position: relative;
@@ -1219,10 +1232,12 @@ a:hover { color: var(--pink); }
   width: 40px;
 }
 .small-brand strong {
-  font-family: "Bebas Neue", Impact, sans-serif;
-  font-size: 1.2rem;
-  letter-spacing: .04em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.94rem;
+  letter-spacing: -.01em;
   color: #fff;
+  line-height: 1.15;
 }
 .small-brand em {
   font-style: normal;
