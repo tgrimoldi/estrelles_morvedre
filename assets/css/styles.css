@@ -375,7 +375,10 @@ a:hover { color: var(--pink); }
   color: var(--blue);
   line-height: 1;
 }
+.stat { min-width: 0; }
 .stat .label {
+  overflow-wrap: anywhere;
+  hyphens: auto;
   font-size: .8rem;
   color: var(--muted);
   text-transform: uppercase;
