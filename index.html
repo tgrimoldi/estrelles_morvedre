@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=202610121320" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=202610121400" />
 
   <script type="application/ld+json">
   {
@@ -602,7 +602,11 @@
             <li><a href="#contacto">Contacto</a></li>
           </ul>
         </nav>
-        <p class="muted small copyright">© <span id="year"></span> Estreles de Morvedre Rugby Club</p>
+        <p class="muted small copyright">
+          © <span id="year"></span> Estreles de Morvedre Rugby Club ·
+          <a href="cookies.html">Política de cookies</a> ·
+          <button type="button" class="link-button" data-cookie-settings>Configurar cookies</button>
+        </p>
       </div>
     </div>
   </footer>
@@ -618,6 +622,18 @@
     <span class="wa-float-label">WhatsApp</span>
   </a>
 
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+    <p class="cookie-banner-text">
+      Usamos cookies de <strong>Google Analytics</strong> para saber cuántas
+      personas visitan la web y mejorarla. Solo las activamos si nos das
+      permiso. <a href="cookies.html">Más información</a>
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn btn-ghost-blue" data-cookie-choice="denied">Rechazar</button>
+      <button type="button" class="btn btn-primary" data-cookie-choice="granted">Aceptar</button>
+    </div>
+  </div>
+
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de fotos" hidden>
     <button type="button" class="lightbox-close" data-lightbox-close aria-label="Cerrar visor de fotos">&times;</button>
     <button type="button" class="lightbox-nav lightbox-prev" aria-label="Foto anterior">&lsaquo;</button>
@@ -628,6 +644,6 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js?v=202610121320" defer></script>
+  <script src="assets/js/main.js?v=202610121400" defer></script>
 </body>
 </html>

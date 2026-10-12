@@ -18,6 +18,76 @@
     });
   }
 
+  // Google Analytics con consentimiento previo: no se carga nada (ni
+  // cookies) hasta que el visitante pulsa "Aceptar". La elección se guarda
+  // en este navegador y se puede cambiar desde "Configurar cookies".
+  const GA_ID = "";
+  const CONSENT_KEY = "cookie-consent";
+  const cookieBanner = document.getElementById("cookie-banner");
+
+  const readConsent = () => {
+    try { return localStorage.getItem(CONSENT_KEY); } catch { return null; }
+  };
+  const saveConsent = (value) => {
+    try { localStorage.setItem(CONSENT_KEY, value); } catch { /* sin almacenamiento */ }
+  };
+
+  let gaLoaded = false;
+  const loadAnalytics = () => {
+    if (gaLoaded || !GA_ID) return;
+    gaLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", GA_ID, { anonymize_ip: true });
+    const tag = document.createElement("script");
+    tag.async = true;
+    tag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(tag);
+  };
+
+  const removeAnalyticsCookies = () => {
+    document.cookie.split(";").forEach((c) => {
+      const name = c.split("=")[0].trim();
+      if (!name.startsWith("_ga")) return;
+      const host = location.hostname;
+      [host, `.${host}`, `.${host.replace(/^www\./, "")}`].forEach((domain) => {
+        document.cookie = `${name}=; Max-Age=0; path=/; domain=${domain}`;
+      });
+      document.cookie = `${name}=; Max-Age=0; path=/`;
+    });
+  };
+
+  const showCookieBanner = () => { if (cookieBanner && GA_ID) cookieBanner.hidden = false; };
+
+  if (GA_ID) {
+    const consent = readConsent();
+    if (consent === "granted") loadAnalytics();
+    else if (consent !== "denied") showCookieBanner();
+  }
+
+  document.querySelectorAll("[data-cookie-choice]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const choice = btn.dataset.cookieChoice;
+      saveConsent(choice);
+      if (cookieBanner) cookieBanner.hidden = true;
+      if (choice === "granted") {
+        loadAnalytics();
+      } else {
+        removeAnalyticsCookies();
+        // Si GA ya estaba cargado en esta visita, se deja de medir al recargar.
+        if (gaLoaded) location.reload();
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-cookie-settings]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (!GA_ID) return;
+      if (cookieBanner) cookieBanner.hidden = false;
+    });
+  });
+
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
