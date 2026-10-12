@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://estrelesdemorvedre.com/</loc>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image><image:loc>https://estrelesdemorvedre.com/assets/img/hero-team.jpg</image:loc></image:image>
+    <image:image><image:loc>https://estrelesdemorvedre.com/assets/img/escudo-hd.png</image:loc></image:image>
+    <image:image><image:loc>https://estrelesdemorvedre.com/assets/img/escuela/entrenamiento.jpg</image:loc></image:image>
+    <image:image><image:loc>https://estrelesdemorvedre.com/assets/img/femenino/partido.jpg</image:loc></image:image>
+    <image:image><image:loc>https://estrelesdemorvedre.com/assets/img/eventos/torneo-del-jamon-26/portada-web.jpg</image:loc></image:image>
+    <image:image><image:loc>https://estrelesdemorvedre.com/assets/img/eventos/torneo-del-jamon-25/portada-web.jpg</image:loc></image:image>
+    <image:image><image:loc>https://estrelesdemorvedre.com/assets/img/eventos/mal-de-altura-25/portada-web.jpg</image:loc></image:image>
   </url>
 </urlset>
