@@ -21,7 +21,7 @@
   // Google Analytics con consentimiento previo: no se carga nada (ni
   // cookies) hasta que el visitante pulsa "Aceptar". La elección se guarda
   // en este navegador y se puede cambiar desde "Configurar cookies".
-  const GA_ID = "";
+  const GA_ID = "G-CDBJZQB04B";
   const CONSENT_KEY = "cookie-consent";
   const cookieBanner = document.getElementById("cookie-banner");
 
@@ -39,7 +39,7 @@
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag("js", new Date());
-    window.gtag("config", GA_ID, { anonymize_ip: true });
+    window.gtag("config", GA_ID);
     const tag = document.createElement("script");
     tag.async = true;
     tag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
