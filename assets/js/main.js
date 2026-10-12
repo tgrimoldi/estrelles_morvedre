@@ -46,6 +46,18 @@
     document.head.appendChild(tag);
   };
 
+  // Eventos de contacto para Analytics. Solo se envían si el visitante
+  // aceptó las cookies (si no, gtag no existe y no se hace nada).
+  // El asunto solo se envía si es uno de los predefinidos de los botones,
+  // para no mandar a Google texto escrito por el visitante.
+  const KNOWN_SUBJECTS = new Set(
+    [...document.querySelectorAll("a[data-prefill]")].map((a) => a.dataset.prefill)
+  );
+  const subjectForAnalytics = (subject) => (KNOWN_SUBJECTS.has(subject) ? subject : "otro");
+  const track = (name, params = {}) => {
+    if (typeof window.gtag === "function") window.gtag("event", name, params);
+  };
+
   const removeAnalyticsCookies = () => {
     document.cookie.split(";").forEach((c) => {
       const name = c.split("=")[0].trim();
@@ -174,6 +186,7 @@
         if (!res.ok || String(data.success) !== "true") {
           throw new Error(data.message || `HTTP ${res.status}`);
         }
+        track("contacto_formulario", { asunto: subjectForAnalytics(subject) });
         form.reset();
         showStatus("¡Gracias! Hemos recibido tu mensaje y te responderemos por email muy pronto.", "ok");
       } catch (err) {
@@ -196,11 +209,18 @@
     waBtn.addEventListener("click", () => {
       const { subject, body } = composeMessage();
       const text = `${subject}\n\n${body}`;
+      track("contacto_whatsapp", {
+        ubicacion: "formulario",
+        asunto: subjectForAnalytics(fieldVal('[name="subject"]')),
+      });
       window.open(`https://wa.me/${CLUB_WA}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
     });
   }
 
   const waFloat = document.getElementById("wa-float");
+  if (waFloat) {
+    waFloat.addEventListener("click", () => track("contacto_whatsapp", { ubicacion: "boton_flotante" }));
+  }
   const uneteSection = document.getElementById("unete");
   if (waFloat && uneteSection && "IntersectionObserver" in window) {
     const obs = new IntersectionObserver(
