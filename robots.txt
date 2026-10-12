@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tgrimoldi.github.io/estrelles_morvedre/sitemap.xml
+Sitemap: https://estrelesdemorvedre.com/sitemap.xml
