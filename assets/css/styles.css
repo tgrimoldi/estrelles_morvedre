@@ -478,6 +478,10 @@ a:hover { color: var(--pink); }
 }
 .badge-home { background: var(--pink); color: #fff; }
 .badge-away { background: rgba(1,74,197,.1); color: var(--blue-deep); }
+/* Partido aplazado: fecha pendiente */
+.match-date--tbc { background: var(--paper-2); color: var(--blue-deep); border: 1px dashed var(--line); }
+.match-date--tbc .month { color: var(--muted); letter-spacing: .08em; }
+.match-status { color: var(--pink); }
 
 @media (max-width: 600px) {
   .match { grid-template-columns: auto minmax(0, 1fr); }
